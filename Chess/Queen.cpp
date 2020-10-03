@@ -5,16 +5,16 @@ Queen::Queen(Position p, std::string color, Board* b) :Piece(p, color, b) {
 
 }
 
-bool Queen::move(Position destination, Player pl) {
-	if (Helper::checkVerticalMove(this->p, destination) && Helper::checkVerticalPath(this->p, destination, this->board)) {
+bool Queen::move(Position destination, std::string color) {
+	if (checkVerticalMove(this->p, destination) && checkVerticalPath(this->p, destination, this->board)) {
 		update(destination, this);
 		return true;
 	}
-	else if (Helper::checkHorizontalMove(this->p, destination) && Helper::checkHorizontalPath(this->p, destination, this->board)) {
+	else if (checkHorizontalMove(this->p, destination) && checkHorizontalPath(this->p, destination, this->board)) {
 			update(destination, this);
 			return true;
 	}
-	else if (Helper::checkDiagonalMove(this->p, destination) && Helper::checkDiagonalPath(this->p, destination, this->board)) {
+	else if (checkDiagonalMove(this->p, destination) && checkDiagonalPath(this->p, destination, this->board)) {
 		update(destination, this);
 		return true;
 	}
@@ -24,13 +24,13 @@ bool Queen::move(Position destination, Player pl) {
 }
 
 bool Queen::Hint(Position destination) {
-	if (Helper::checkVerticalMove(this->p, destination) && Helper::checkVerticalPath(this->p, destination, this->board)) {
+	if (checkVerticalMove(this->p, destination) && checkVerticalPath(this->p, destination, this->board)) {
 		return true;
 	}
-	else if (Helper::checkHorizontalMove(this->p, destination) && Helper::checkHorizontalPath(this->p, destination, this->board)) {
+	else if (checkHorizontalMove(this->p, destination) && checkHorizontalPath(this->p, destination, this->board)) {
 		return true;
 	}
-	else if (Helper::checkDiagonalMove(this->p, destination) && Helper::checkDiagonalPath(this->p, destination, this->board)) {
+	else if (checkDiagonalMove(this->p, destination) && checkDiagonalPath(this->p, destination, this->board)) {
 		return true;
 	}
 	else {

@@ -1,5 +1,6 @@
 #pragma once
 #include "Board.h"
+#include "Helper.h"
 #include <string>
 #include <iostream>
 
@@ -24,6 +25,8 @@ public:
 	void End();
 	void Play();
 	void PrintBoard();
+	void Hint(int ri, int ci);
 	bool ValidSelection(int ri, int ci);
+	bool ValidDestinationSelection(int sri, int sci, int ri, int ci);
 };
 

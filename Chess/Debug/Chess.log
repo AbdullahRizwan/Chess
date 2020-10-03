@@ -1,29 +1,5 @@
-﻿  Board.cpp
-  Game.cpp
-  Helper.h
-  main.cpp
-  Generating Code...
+﻿  Pawn.cpp
+C:\Users\Dell\source\repos\Chess\Chess\Pawn.cpp(31,10): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+C:\Users\Dell\source\repos\Chess\Chess\Pawn.cpp(74,10): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
 Debug\Helper.obj : warning LNK4042: object specified more than once; extras ignored
-Bishop.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl Helper::checkDiagonalMove(struct Position,struct Position)" (?checkDiagonalMove@Helper@@SA_NUPosition@@0@Z) referenced in function "public: bool __thiscall Bishop::Hint(struct Position)" (?Hint@Bishop@@QAE_NUPosition@@@Z)
-King.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkDiagonalMove(struct Position,struct Position)" (?checkDiagonalMove@Helper@@SA_NUPosition@@0@Z)
-Queen.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkDiagonalMove(struct Position,struct Position)" (?checkDiagonalMove@Helper@@SA_NUPosition@@0@Z)
-Bishop.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl Helper::checkDiagonalPath(struct Position,struct Position,class Board *)" (?checkDiagonalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z) referenced in function "public: bool __thiscall Bishop::Hint(struct Position)" (?Hint@Bishop@@QAE_NUPosition@@@Z)
-King.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkDiagonalPath(struct Position,struct Position,class Board *)" (?checkDiagonalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-Queen.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkDiagonalPath(struct Position,struct Position,class Board *)" (?checkDiagonalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-Board.obj : error LNK2019: unresolved external symbol "public: __thiscall Position::Position(int,int)" (??0Position@@QAE@HH@Z) referenced in function "public: void __thiscall Board::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Init@Board@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
-King.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalMove(struct Position,struct Position)" (?checkVerticalMove@Helper@@SA_NUPosition@@0@Z) referenced in function "public: bool __thiscall King::Hint(struct Position)" (?Hint@King@@QAE_NUPosition@@@Z)
-Pawn.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalMove(struct Position,struct Position)" (?checkVerticalMove@Helper@@SA_NUPosition@@0@Z)
-Queen.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalMove(struct Position,struct Position)" (?checkVerticalMove@Helper@@SA_NUPosition@@0@Z)
-Rook.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalMove(struct Position,struct Position)" (?checkVerticalMove@Helper@@SA_NUPosition@@0@Z)
-King.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalPath(struct Position,struct Position,class Board *)" (?checkVerticalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z) referenced in function "public: bool __thiscall King::Hint(struct Position)" (?Hint@King@@QAE_NUPosition@@@Z)
-Pawn.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalPath(struct Position,struct Position,class Board *)" (?checkVerticalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-Queen.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalPath(struct Position,struct Position,class Board *)" (?checkVerticalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-Rook.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkVerticalPath(struct Position,struct Position,class Board *)" (?checkVerticalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-King.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl Helper::checkHorizontalMove(struct Position,struct Position)" (?checkHorizontalMove@Helper@@SA_NUPosition@@0@Z) referenced in function "public: bool __thiscall King::Hint(struct Position)" (?Hint@King@@QAE_NUPosition@@@Z)
-Queen.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkHorizontalMove(struct Position,struct Position)" (?checkHorizontalMove@Helper@@SA_NUPosition@@0@Z)
-Rook.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkHorizontalMove(struct Position,struct Position)" (?checkHorizontalMove@Helper@@SA_NUPosition@@0@Z)
-King.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl Helper::checkHorizontalPath(struct Position,struct Position,class Board *)" (?checkHorizontalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z) referenced in function "public: bool __thiscall King::Hint(struct Position)" (?Hint@King@@QAE_NUPosition@@@Z)
-Queen.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkHorizontalPath(struct Position,struct Position,class Board *)" (?checkHorizontalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-Rook.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl Helper::checkHorizontalPath(struct Position,struct Position,class Board *)" (?checkHorizontalPath@Helper@@SA_NUPosition@@0PAVBoard@@@Z)
-Piece.obj : error LNK2019: unresolved external symbol "public: __thiscall Position::Position(void)" (??0Position@@QAE@XZ) referenced in function "public: __thiscall Piece::Piece(struct Position,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Board *)" (??0Piece@@QAE@UPosition@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVBoard@@@Z)
-C:\Users\Dell\source\repos\Chess\Debug\Chess.exe : fatal error LNK1120: 8 unresolved externals
+  Chess.vcxproj -> C:\Users\Dell\source\repos\Chess\Debug\Chess.exe

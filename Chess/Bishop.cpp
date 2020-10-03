@@ -5,8 +5,8 @@ Bishop::Bishop(Position p, std::string color, Board* b) :Piece(p, color, b) {
 
 }
 
-bool Bishop::move(Position destination, Player pl) {
-	if (Helper::checkDiagonalMove(this->p, destination) && Helper::checkDiagonalPath(p, destination, this->board))
+bool Bishop::move(Position destination, std::string color) {
+	if (checkDiagonalMove(this->p, destination) && checkDiagonalPath(p, destination, this->board))
 	{
 		update(destination, this);
 		return true;
@@ -17,7 +17,7 @@ bool Bishop::move(Position destination, Player pl) {
 }
 
 bool Bishop::Hint(Position destination) {
-	if (Helper::checkDiagonalMove(this->p, destination) && Helper::checkDiagonalPath(p, destination, this->board))
+	if (checkDiagonalMove(this->p, destination) && checkDiagonalPath(p, destination, this->board))
 	{
 		return true;
 	}

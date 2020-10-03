@@ -14,12 +14,19 @@ void Knight::print() {
 	}
 }
 
-bool Knight::move(Position destination, Player pl) {
-	if(((abs(this->p.ri - destination.ri) == 2 && abs(this->p.ci - destination.ci) == 1)) || 
+bool Knight::move(Position destination, std::string color) {
+	if (((abs(this->p.ri - destination.ri) == 2 && abs(this->p.ci - destination.ci) == 1)) ||
 		((abs(this->p.ri - destination.ri) == 1 && abs(this->p.ci - destination.ci) == 2))) {
-
-		update(destination, this);
-		return true;
+		if (this->board->getPieceAt(destination.ri, destination.ci) == nullptr) {
+			update(destination, this);
+			return true;
+		}
+		else if (this->color != this->board->getPieceAt(destination.ri, destination.ci)->getColor()) {
+			update(destination, this);
+			return true;
+		}
+		else
+			return false;
 	}
 	else {
 		return false;
@@ -28,9 +35,14 @@ bool Knight::move(Position destination, Player pl) {
 
 bool Knight::Hint(Position destination) {
 	if (((abs(this->p.ri - destination.ri) == 2 && abs(this->p.ci - destination.ci) == 1)) ||
-		((abs(this->p.ri - destination.ri) == 1 && abs(this->p.ci - destination.ci) == 2))) {
-
-		return true;
+		((abs(this->p.ri - destination.ri) == 1 && abs(this->p.ci - destination.ci) == 2)) ) {
+		if (this->board->getPieceAt(destination.ri, destination.ci) == nullptr) {
+			return true;
+		}
+		else if (this->color != this->board->getPieceAt(destination.ri, destination.ci)->getColor())
+			return true;
+		else
+			return false;
 	}
 	else {
 		return false;

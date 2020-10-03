@@ -7,6 +7,7 @@ class Board
 {
 private:
 	Piece* grid[8][8];
+	bool hintarray[8][8];
 public:
 	void Init(std::string input);
 	Piece* getPieceAt(int ri, int ci);
@@ -16,6 +17,8 @@ public:
 	void loadBoard();
 	void saveBoard();
 	void printBoard();
-	
+	void SetHint(int ri, int ci);
+	void ResetHint();
+	bool movePiece(int sri, int sci, int dri,int dci);
 };
 

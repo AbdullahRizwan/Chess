@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include <Windows.h>
-#include "Helper.h"
+
 
 Game::Game() {
     color[0] = "White";
@@ -9,6 +9,7 @@ Game::Game() {
     turn = 1;
 }
 void Game::Init() {
+    
 	turn = 1;
 	this->b.Init("Text.txt");
 }
@@ -17,6 +18,7 @@ void Game::changeTurn() {
 }
 
 void Game::PrintBoard() {
+    system("cls");
 	this->b.printBoard();
 }
 
@@ -64,23 +66,55 @@ void gotoRowCol(int rpos, int cpos)
 }
 
 bool Game::ValidSelection(int ri, int ci) {
-    if (color[turn] == (this->b.getPieceColorAt(ri,ci))) {
-        return true;    
-    }
+    if(b.getPieceAt(ri,ci)!=nullptr)
+        if (color[turn-1] == (this->b.getPieceColorAt(ri,ci))) {
+            return true;    
+        }
     return false;
 }
 
+void Hint() {
+
+
+
+}
 
 void Game::Play() {
     this->PrintBoard();
-    int ri=0, ci=0;
+    int sri=0, sci=0;
+    int dri = 0, dci = 0;
     while (true) {
-        
+        b.ResetHint();
+        this->PrintBoard();
         do {
-            
-            getRowColbyLeftClick(ri, ci);
-            cout << ri << "\t" << ci << endl;
-        } while (!Game::ValidSelection(ri, ci));
+            //check source
+            getRowColbyLeftClick(sri, sci);
+        } while (!Game::ValidSelection(sri, sci) && (sri < 8 || sci < 8));
+        b.ResetHint();
+        Hint(sri, sci);
+        do {
+            //check source
+            getRowColbyLeftClick(dri, dci);
+            if (dri == sri && sci == dci) {
+                sri = 0;
+                dri = 0;
+                this->changeTurn();
+                break;
+           }
+        } while (!Game::ValidDestinationSelection(sri,sci,dri, dci) && ( dri < 8 || dci < 8));
+
+        gotoRowCol(8, 0);
+        cout << "Turn = " << this->turn;
+        this->changeTurn();
 
 	}
+}
+
+void Game::Hint(int ri,int ci) {
+    b.SetHint(ri,ci);
+    system("cls");
+    this->PrintBoard();
+}
+bool Game::ValidDestinationSelection(int sri, int sci, int ri, int ci) {
+    return this->b.movePiece(sri, sci, ri, ci);
 }

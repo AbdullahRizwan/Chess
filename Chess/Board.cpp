@@ -5,10 +5,17 @@
 #include "Knight.h"
 #include "Rook.h"
 #include "Queen.h"
+#include <Windows.h>
 #include "Bishop.h"
 #include <iostream>
 
 void Board::Init(std::string input) {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			hintarray[i][j] = false;
+		}
+	}
+
 	std::ifstream fileReader(input);
 	if (fileReader.is_open()) {
 		char c;
@@ -93,11 +100,19 @@ void Board::setPos(int ri, int ci, Piece *p) {
 void Board::printBoard() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
+			if (hintarray[i][j]) {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+			}
+			else {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
 			if (grid[i][j] != nullptr) {
 				grid[i][j]->print();
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 			}
 			else {
 				std::cout << "-";
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 			}
 		}
 		std::cout << std::endl;
@@ -121,4 +136,25 @@ void Board::saveBoard() {
 		}
 		fout << "\n";
 	}
+}
+
+void Board::SetHint(int ri,int ci) {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (getPieceAt(ri,ci)->Hint(Position(i, j))) {
+				hintarray[i][j] = true;
+			}
+		}
+	}
+}
+void Board::ResetHint() {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			hintarray[i][j] = false;
+		}
+	}
+}
+
+bool Board::movePiece(int sri, int sci, int dri, int dci) {
+	return grid[sri][sci]->move(Position(dri, dci), grid[sri][sci]->getColor());
 }

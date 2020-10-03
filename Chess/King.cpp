@@ -14,8 +14,8 @@ void King::print() {
 	}
 }
 
-bool King::move(Position destination, Player pl) {
-	if (Helper::checkHorizontalMove(this->p, destination) && Helper::checkHorizontalPath(this->p, destination, this->board)){
+bool King::move(Position destination, std::string color) {
+	if (checkHorizontalMove(this->p, destination) && checkHorizontalPath(this->p, destination, this->board)){
 		if ((abs(p.ri - destination.ri)) == 1 || (abs(p.ci - destination.ci)) == 1) {
 			SetFirstMove();
 			update(destination, this);
@@ -23,7 +23,7 @@ bool King::move(Position destination, Player pl) {
 		}
 		return false;
 	}
-	else if (Helper::checkVerticalMove(this->p, destination) && Helper::checkVerticalPath(this->p, destination, this->board)){
+	else if (checkVerticalMove(this->p, destination) && checkVerticalPath(this->p, destination, this->board)){
 		if ((abs(p.ri - destination.ri)) == 1 || (abs(p.ci - destination.ci)) == 1) {
 			SetFirstMove();
 			update(destination, this);
@@ -31,7 +31,7 @@ bool King::move(Position destination, Player pl) {
 		}
 		return false;
 	}
-	else if (Helper::checkDiagonalMove(this->p, destination) && Helper::checkDiagonalPath(this->p, destination, this->board)) {
+	else if (checkDiagonalMove(this->p, destination) && checkDiagonalPath(this->p, destination, this->board)) {
 		if ((abs(p.ri - destination.ri)) == 1 || (abs(p.ci - destination.ci)) == 1) {
 			SetFirstMove();
 			update(destination, this);
@@ -45,19 +45,19 @@ bool King::move(Position destination, Player pl) {
 }
 
 bool King::Hint(Position destination) {
-	if (Helper::checkHorizontalMove(this->p, destination) && Helper::checkHorizontalPath(this->p, destination, this->board)) {
+	if (checkHorizontalMove(this->p, destination) && checkHorizontalPath(this->p, destination, this->board)) {
 		if ((abs(p.ri - destination.ri)) == 1 || (abs(p.ci - destination.ci)) == 1) {
 			return true;
 		}
 		return false;
 	}
-	else if (Helper::checkVerticalMove(this->p, destination) && Helper::checkVerticalPath(this->p, destination, this->board)) {
+	else if (checkVerticalMove(this->p, destination) && checkVerticalPath(this->p, destination, this->board)) {
 		if ((abs(p.ri - destination.ri)) == 1 || (abs(p.ci - destination.ci)) == 1) {
 			return true;
 		}
 		return false;
 	}
-	else if (Helper::checkDiagonalMove(this->p, destination) && Helper::checkDiagonalPath(this->p, destination, this->board)) {
+	else if (checkDiagonalMove(this->p, destination) && checkDiagonalPath(this->p, destination, this->board)) {
 		if ((abs(p.ri - destination.ri)) == 1 || (abs(p.ci - destination.ci)) == 1) {
 			return true;
 		}
@@ -67,6 +67,7 @@ bool King::Hint(Position destination) {
 		return false;
 	}
 }
+
 char King::getPiece() {
 	if (this->getColor() == "Black") {
 		return 'K';

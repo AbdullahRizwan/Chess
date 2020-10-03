@@ -7,6 +7,7 @@
 int main() {
     Game g;
     g.InputNames();
+    system("cls");
     g.Init();
 
     g.Play();

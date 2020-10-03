@@ -5,13 +5,13 @@ Rook::Rook(Position p, std::string color, Board* b) :Piece(p, color, b) {
 	
 }
 
-bool Rook::move(Position destination, Player pl) {
-	if (Helper::checkHorizontalMove(p, destination) && Helper::checkHorizontalPath(p, destination, board)) {
+bool Rook::move(Position destination, std::string color) {
+	if (checkHorizontalMove(p, destination) && checkHorizontalPath(p, destination, board)) {
 		SetFirstMove();
 		update(destination, this);
 		return true;
 	}
-	else if (Helper::checkVerticalMove(p, destination) && Helper::checkVerticalPath(p, destination, board)) {
+	else if (checkVerticalMove(p, destination) && checkVerticalPath(p, destination, board)) {
 		SetFirstMove();
 		update(destination, this);
 		return true;
@@ -22,10 +22,10 @@ bool Rook::move(Position destination, Player pl) {
 }
 
 bool Rook::Hint(Position destination) {
-	if (Helper::checkHorizontalMove(p, destination) && Helper::checkHorizontalPath(p, destination, board)) {
+	if (checkHorizontalMove(p, destination) && checkHorizontalPath(p, destination, board)) {
 		return true;
 	}
-	else if (Helper::checkVerticalMove(p, destination) && Helper::checkVerticalPath(p, destination, board)) {
+	else if (checkVerticalMove(p, destination) && checkVerticalPath(p, destination, board)) {
 		return true;
 	}
 	else {
